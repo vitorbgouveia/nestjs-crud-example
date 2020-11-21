@@ -1,0 +1,23 @@
+version: '3'
+services:
+  api:
+    container_name: ${SERVICE_NAME}-api
+    build:
+      context: .
+      args:
+        MODE: homologation
+        PORT: ${PORT_API_EXPOSE}
+    restart: always
+    environment:
+      NODE_ENV: homologation
+    command: npm run start:prod
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - core-net
+      - kong-net
+networks:
+  kong-net:
+    external: true
+  core-net:
+    external: true

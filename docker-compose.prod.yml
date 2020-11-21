@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    container_name: ${SERVICE_NAME}-api
+    build:
+      context: .
+      args:
+        MODE: production
+        PORT: ${PORT_API_EXPOSE}
+    restart: always
+    environment:
+      NODE_ENV: production
+    command: npm run start:prod
+    ports:
+      - ${PORT_API_EXPOSE}:3000
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - core-net
+networks:
+  core-net:
+    external: true

@@ -1,0 +1,1 @@
+{"type":"postgres","host":"localhost","username":"postgres","password":"postgres","database":"exemplo","port":5432,"entities":["src/**/*.entity.ts"],"migrations":["migrations/*.ts"],"cli":{"migrationsDir":"migrations"},"logging":true}
