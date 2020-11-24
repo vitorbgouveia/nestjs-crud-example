@@ -1,9 +1,8 @@
-import { HttpService, Injectable } from '@nestjs/common';
-
+import { Injectable, HttpService } from '@nestjs/common';
 import { Pipeline } from '../pipeline/pipeline';
-import { validaToken } from '../pipeline/pipes/valida-token.pipeline';
-import { validaUsuario } from '../pipeline/pipes/valida-usuario.pipeline';
-import { validaPermissoes } from '../pipeline/pipes/valida-permissoes.pipeline';
+import { validPermissions } from '../pipeline/pipes/valid-permissions.pipeline';
+import { validToken } from '../pipeline/pipes/valid-token.pipeline';
+import { validUser } from '../pipeline/pipes/valid-user.pipeline';
 
 @Injectable()
 export class AuthService {
@@ -13,9 +12,9 @@ export class AuthService {
     const pipeline = new Pipeline();
 
     pipeline
-      .addPipe(validaToken)
-      .addPipe(validaUsuario)
-      .addPipe(validaPermissoes);
+      .addPipe(validToken)
+      .addPipe(validUser)
+      .addPipe(validPermissions);
 
     pipeline.processPipe(req);
   }

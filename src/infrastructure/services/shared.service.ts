@@ -11,11 +11,11 @@ export class SharedService {
       .catch((e: any) => { throw e; });
   }
 
-  async validarCampoUnico(repository: any, form) {
+  async validUniqueColumn(repository: any, form) {
     for (const uniqueMetadata of repository.metadata.uniques) {
       const nameProp = uniqueMetadata.givenColumnNames[0];
       if (await repository.findOne( { [`${nameProp}`]: form[`${nameProp}`] } )) {
-        throw new Error(`Já existe registro com ${nameProp} cadastrado`);
+        throw new Error(`There is already a record with the registered ${nameProp}`);
       }
     }
   }

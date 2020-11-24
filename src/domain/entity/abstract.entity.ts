@@ -5,9 +5,9 @@ export class AbstractEntity {
   public id: number;
 
   @Column({ nullable: false, default: () => 'CURRENT_TIMESTAMP', name: 'dt_criacao' })
-  public dtCriacao?: Date;
+  public dtCreate?: Date;
 
   @Column({ name: 'usuario_criacao' })
-  public usuarioCriacao: number;
+  public userCreate: number;
 
 }

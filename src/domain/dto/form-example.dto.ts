@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsInt, IsNotEmpty, IsString, Length, IsOptional } from 'class-validator';
 
-export class FormExemploDto {
+export class FormExampleDto {
   @ApiProperty()
   id: number;
 
@@ -9,11 +9,11 @@ export class FormExemploDto {
   @Length(0, 60)
   @IsOptional()
   @ApiProperty()
-  nome: string;
+  name: string;
 
   @ApiProperty()
-  usuarioCriacao: number;
+  userCreate: number;
 
   @ApiProperty()
-  dtCriacao: Date;
+  dtCreate: Date;
 }
